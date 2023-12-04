@@ -21,7 +21,7 @@ pipeline {
                     bat "echo File exists at: ${targetPath}"
                     bat "rmdir /s /q ${targetPath}"
                     } else {
-                        echo "Target directory does not exist. No cleanup needed."
+                        echo "Target directory does not exist at : ${targetPath}. No cleanup needed."
                 }
             }
         }
