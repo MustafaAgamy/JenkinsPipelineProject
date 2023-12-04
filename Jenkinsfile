@@ -28,9 +28,19 @@ pipeline {
         }
     }
 
+    stage('Build'){
+        steps{
+            script{
+                bat 'mvn build'
+            }
+        }
+    }
+
         stage('Test') {
             steps {
+                script{
                 bat 'mvn clean test'
+                }
             }
         }
 
