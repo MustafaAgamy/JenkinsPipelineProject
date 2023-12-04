@@ -48,7 +48,7 @@ pipeline {
                         subject: "Test Results",
                         body: "Please find the attached test results.",
                         //To be used if you want the report to be viewed in the body of the mail
-//                         body: readFile("${WORKSPACE}${HTML_FILE}"),
+                        body: readFile("${WORKSPACE}${HTML_FILE}"),
                         to: "${EMAIL_RECIPIENT}",
 //                         replyTo: "noreply@example.com",
                         mimeType: 'text/html',
