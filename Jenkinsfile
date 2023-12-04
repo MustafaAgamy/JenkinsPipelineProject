@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Delete the target folder
-                    bat "rmdir /s /q ${PROJECT_ROOT}/${TARGET_FOLDER}"
+                    bat "rmdir /s /q ${PROJECT_ROOT}\\${TARGET_FOLDER}"
                 }
             }
         }
