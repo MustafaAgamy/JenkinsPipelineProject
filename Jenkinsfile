@@ -6,7 +6,7 @@ pipeline {
         TARGET_FOLDER = 'target'
         SUREFIRE_REPORTS = 'surefire-reports/PipelineTest'
         HTML_FILE = 'target/surefire-reports/emailable-report.html'
-        EMAIL_RECIPIENT = 'czczc2009@outlook.com'
+        EMAIL_RECIPIENT = 'czczc2009@gmail.com'
     }
 
     stages {
