@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'DemoAgent'}
 
     environment {
         PROJECT_ROOT = 'D:\\Testing\\Automation\\JenkinsPipeline\\JenkinsPipelineProject'
