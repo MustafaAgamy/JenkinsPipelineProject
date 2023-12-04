@@ -15,7 +15,7 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
-                   def targetPath = "${PROJECT_ROOT}\\${TARGET_FOLDER}"
+                   def targetPath = "${WORKSPACE}/${TARGET_FOLDER}"
                    if (fileExists(targetPath)) {
                     // Delete the target folder
                     bat "rmdir /s /q ${targetPath}"
