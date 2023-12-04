@@ -36,7 +36,6 @@ pipeline {
             steps {
                 script {
                   def attachmentPath = "${TARGET_FOLDER}${SUREFIRE_REPORTS}${HTML_REPORT}"
-//                def attachmentPath = 'target/surefire-reports/emailable-report.html'
                     if(fileExists(attachmentPath)){
                          bat "echo File exists: ${attachmentPath}"
                     } else {
