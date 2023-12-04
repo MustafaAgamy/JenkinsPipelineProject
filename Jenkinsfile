@@ -16,11 +16,12 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
+                echo "Starting 'Cleanup' Stage!!"
                    def targetPath = "${WORKSPACE_WINDOWS}\\${TARGET_FOLDER}"
                    if (fileExists(targetPath)) {
                     // Delete the target folder
                     bat "rmdir /s /q ${targetPath}"
-                    bat "echo Target directory removed successfully : ${targetPath}"
+                    echo "echo Target directory removed successfully : ${targetPath}"
                     } else {
                         echo "Target directory does not exist at : ${targetPath}. No cleanup needed."
                 }
@@ -31,6 +32,7 @@ pipeline {
     stage('Build'){
         steps{
             script{
+                echo "Starting 'Build' Stage!!"
                 bat 'mvn clean install'
             }
         }
@@ -44,14 +46,15 @@ pipeline {
             }
         }
 
-        stage('Send Email') {
+        stage('Mail Distribution') {
             steps {
                 script {
+                  echo "Starting 'Mail Distribution' Stage!!"
                   def attachmentPath = "${TARGET_FOLDER}${SUREFIRE_REPORTS}${HTML_REPORT}"
                     if(fileExists(attachmentPath)){
-                         bat "echo File exists at: ${attachmentPath}"
+                         echo "File exists at: ${attachmentPath}"
                     } else {
-                         bat "echo File doesn't exist at: ${attachmentPath}"
+                         echo "File doesn't exist at: ${attachmentPath}"
                     }
                     // Attach the HTML file and send email
                     def htmlReport = readFile("${attachmentPath}")
