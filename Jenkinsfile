@@ -41,8 +41,6 @@ pipeline {
                     } else {
                          bat "echo File doesn't exist at: ${attachmentPath}"
                     }
-
-
                     // Attach the HTML file and send email
                     emailext (
                         subject: "Test Results",
