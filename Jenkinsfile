@@ -35,9 +35,9 @@ pipeline {
         stage('Send Email') {
             steps {
                 script {
-               def attachmentPath = 'target/surefire-reports/emailable-report.html'
+               def attachmentPath = '\\target\\surefire-reports\\emailable-report.html'
                     if(fileExists(attachmentPath)){
-                         bat "echo File exists: %CD%\\${attachmentPath}"
+                         bat "echo File exists: ${attachmentPath}"
                     } else {
                          bat "echo File doesn't exist at: ${attachmentPath}"
                     }
