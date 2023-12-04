@@ -5,7 +5,7 @@ pipeline {
         PROJECT_ROOT = 'D:\\Testing\\Automation\\JenkinsPipeline\\JenkinsPipelineProject'
         TARGET_FOLDER = 'target'
         SUREFIRE_REPORTS = 'surefire-reports/PipelineTest'
-        HTML_FILE = 'target/surefire-reports/emailable-report.html'
+        HTML_FILE = '../target/surefire-reports/emailable-report.html'
         EMAIL_RECIPIENT = 'czczc2009@gmail.com'
     }
 
