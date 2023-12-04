@@ -20,7 +20,7 @@ pipeline {
                    if (fileExists(targetPath)) {
                     // Delete the target folder
                     bat "rmdir /s /q ${targetPath}"
-                    bat "echo removed successfully : ${targetPath}"
+                    bat "echo Target directory removed successfully : ${targetPath}"
                     } else {
                         echo "Target directory does not exist at : ${targetPath}. No cleanup needed."
                 }
