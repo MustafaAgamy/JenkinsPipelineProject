@@ -5,8 +5,8 @@ pipeline {
         PROJECT_ROOT = 'D:\\Testing\\Automation\\JenkinsPipeline\\JenkinsPipelineProject'
         WORKSPACE = 'C:/ProgramData/Jenkins/.jenkins/workspace/FirstPipeLine'
         TARGET_FOLDER = 'target'
-        SUREFIRE_REPORTS = 'surefire-reports/PipelineTest'
-        HTML_FILE = '/FirstPipeLine/target/surefire-reports/emailable-report.html'
+        SUREFIRE_REPORTS = '/surefire-reports/PipelineTest'
+        HTML_REPORT = 'emailable-report.html'
         EMAIL_RECIPIENT = 'czczc2009@gmail.com'
 
     }
@@ -35,7 +35,8 @@ pipeline {
         stage('Send Email') {
             steps {
                 script {
-               def attachmentPath = 'target/surefire-reports/emailable-report.html'
+                  def attachmentPath = "${TARGET_FOLDER}${SUREFIRE_REPORTS}${HTML_REPORT}"
+//                def attachmentPath = 'target/surefire-reports/emailable-report.html'
                     if(fileExists(attachmentPath)){
                          bat "echo File exists: ${attachmentPath}"
                     } else {
