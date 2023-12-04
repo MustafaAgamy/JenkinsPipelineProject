@@ -8,6 +8,7 @@ pipeline {
         SUREFIRE_REPORTS = 'surefire-reports/PipelineTest'
         HTML_FILE = '/FirstPipeLine/target/surefire-reports/emailable-report.html'
         EMAIL_RECIPIENT = 'czczc2009@gmail.com'
+
     }
 
     stages {
@@ -34,6 +35,7 @@ pipeline {
         stage('Send Email') {
             steps {
                 script {
+               def attachmentPath = 'C:/ProgramData/Jenkins/.jenkins/workspace/FirstPipeLine/target/surefire-reports/emailable-report.html'
                     // Attach the HTML file and send email
                     emailext (
                         subject: "Test Results",
@@ -43,6 +45,8 @@ pipeline {
                         to: "${EMAIL_RECIPIENT}",
 //                         replyTo: "noreply@example.com",
                         mimeType: 'text/html',
+                         attachments: [
+                        [file: attachmentPath, fileName: 'emailable-report.html']
                         attachmentsPattern: "${WORKSPACE}${HTML_FILE}"
                     )
                 }
