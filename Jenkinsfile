@@ -39,7 +39,7 @@ pipeline {
                         body: "Please find the attached test results.",
                         to: EMAIL_RECIPIENT,
                         attachLog: true,
-                        attachmentsPattern: "${PROJECT_ROOT}\\${TARGET_FOLDER}\\${SUREFIRE_REPORTS}\\${HTML_FILE}"
+                        attachmentsPattern: "${PROJECT_ROOT}/${TARGET_FOLDER}/${SUREFIRE_REPORTS}/${HTML_FILE}"
                     )
                 }
             }
