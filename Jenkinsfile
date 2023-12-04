@@ -11,7 +11,6 @@ pipeline {
         EMAIL_RECIPIENT = 'czczc2009@gmail.com'
 
     }
-
     stages {
         stage('Cleanup') {
             steps {
@@ -28,7 +27,6 @@ pipeline {
             }
         }
     }
-
     stage('Build'){
         steps{
             script{
@@ -37,7 +35,6 @@ pipeline {
             }
         }
     }
-
         stage('Test') {
             steps {
                 script{
@@ -46,7 +43,6 @@ pipeline {
                 }
             }
         }
-
         stage('Mail Distribution') {
             steps {
                 script {
