@@ -44,12 +44,13 @@ pipeline {
                          bat "echo File doesn't exist at: ${attachmentPath}"
                     }
                     // Attach the HTML file and send email
+                    def htmlReport = readFile("${WORKSPACE}${HTML_FILE}")
                     emailext (
                         subject: "Test Results",
 //                         body: "Please find the attached test results.",
                         //To be used if you want the report to be viewed in the body of the mail
-                        body: "Please find the attached test results."
-                         readFile("${WORKSPACE}${HTML_FILE}"),
+                        body: "Please find the attached test results.\n\n ${htmlReport}",
+//                          readFile("${WORKSPACE}${HTML_FILE}"),
                         to: "${EMAIL_RECIPIENT}",
 //                         replyTo: "noreply@example.com",
                         mimeType: 'text/html',
