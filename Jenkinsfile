@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         PROJECT_ROOT = 'D:\\Testing\\Automation\\JenkinsPipeline\\JenkinsPipelineProject'
+        WORKSPACE_WINDOWS = 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\FirstPipeLine'
         WORKSPACE = 'C:/ProgramData/Jenkins/.jenkins/workspace/FirstPipeLine'
         TARGET_FOLDER = 'target'
         SUREFIRE_REPORTS = '/surefire-reports'
@@ -15,7 +16,7 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
-                   def targetPath = "${WORKSPACE}/${TARGET_FOLDER}"
+                   def targetPath = "${WORKSPACE_WINDOWS}\\${TARGET_FOLDER}"
                    if (fileExists(targetPath)) {
                     // Delete the target folder
                     bat "echo File exists at: ${targetPath}"
