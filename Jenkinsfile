@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PROJECT_ROOT = 'D:\\Testing\\Automation\\JenkinsPipeline\\JenkinsPipelineProject'
+        PROJECT_ROOT = 'D:/Testing/Automation/JenkinsPipeline/JenkinsPipelineProject'
         TARGET_FOLDER = 'target'
         SUREFIRE_REPORTS = 'surefire-reports/PipelineTest'
         HTML_FILE = 'Command line test.html'
@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Delete the target folder
-                    bat "rmdir /s /q ${PROJECT_ROOT}\\${TARGET_FOLDER}"
+                    bat "rmdir /s /q ${PROJECT_ROOT}/${TARGET_FOLDER}"
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
                         body: "Please find the attached test results.",
                         to: EMAIL_RECIPIENT,
                         attachLog: true,
-                        attachmentsPattern: "${PROJECT_ROOT}\\${TARGET_FOLDER}\\${SUREFIRE_REPORTS}\\${HTML_FILE}"
+                        attachmentsPattern: "${PROJECT_ROOT}/${TARGET_FOLDER}/${SUREFIRE_REPORTS}/${HTML_FILE}"
                     )
                 }
             }
