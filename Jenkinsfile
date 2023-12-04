@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         PROJECT_ROOT = 'D:\\Testing\\Automation\\JenkinsPipeline\\JenkinsPipelineProject'
+        PROJECT_ROOT2 = 'D:/Testing/Automation/JenkinsPipeline/JenkinsPipelineProject'
         TARGET_FOLDER = 'target'
         SUREFIRE_REPORTS = 'surefire-reports/PipelineTest'
         HTML_FILE = '/target/surefire-reports/emailable-report.html'
@@ -41,7 +42,7 @@ pipeline {
                         to: "${EMAIL_RECIPIENT}",
 //                         replyTo: "noreply@example.com",
                         mimeType: 'text/html',
-                        attachmentsPattern: "${PROJECT_ROOT}${HTML_FILE}"
+                        attachmentsPattern: "${PROJECT_ROOT2}${HTML_FILE}"
                     )
                 }
             }
