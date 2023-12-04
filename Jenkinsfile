@@ -19,8 +19,8 @@ pipeline {
                    def targetPath = "${WORKSPACE_WINDOWS}\\${TARGET_FOLDER}"
                    if (fileExists(targetPath)) {
                     // Delete the target folder
-                    bat "echo File exists at: ${targetPath}"
                     bat "rmdir /s /q ${targetPath}"
+                    bat "echo removed successfully : ${targetPath}"
                     } else {
                         echo "Target directory does not exist at : ${targetPath}. No cleanup needed."
                 }
