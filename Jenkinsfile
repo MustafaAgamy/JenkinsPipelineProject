@@ -36,9 +36,9 @@ pipeline {
             steps {
                 script {
                def attachmentPath = 'C:/ProgramData/Jenkins/.jenkins/workspace/FirstPipeLine/target/surefire-reports/emailable-report.html'
-                    if(fileExists(attachmentPath){
+                    if(fileExists(attachmentPath)){
                          bat "echo File exists: %CD%\\${attachmentPath}"
-                    } else{
+                    } else {
                          bat "echo File doesn't exist at: ${attachmentPath}"
                     }
 
