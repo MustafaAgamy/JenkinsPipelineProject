@@ -3,10 +3,10 @@ pipeline {
 
     environment {
         PROJECT_ROOT = 'D:\\Testing\\Automation\\JenkinsPipeline\\JenkinsPipelineProject'
-        PROJECT_ROOT2 = 'D:/Testing/Automation/JenkinsPipeline/JenkinsPipelineProject'
+        WORKSPACE = 'C:/ProgramData/Jenkins/.jenkins/workspace'
         TARGET_FOLDER = 'target'
         SUREFIRE_REPORTS = 'surefire-reports/PipelineTest'
-        HTML_FILE = '/target/surefire-reports/emailable-report.html'
+        HTML_FILE = '/FirstPipeLine/target/surefire-reports/emailable-report.html'
         EMAIL_RECIPIENT = 'czczc2009@gmail.com'
     }
 
@@ -38,7 +38,7 @@ pipeline {
                     emailext (
                         subject: "Test Results",
 //                         body: "Please find the attached test results.",
-                        body: readFile("${PROJECT_ROOT}${HTML_FILE}"),
+                        body: readFile("${WORKSPACE}${HTML_FILE}"),
 //                         recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                         to: "${EMAIL_RECIPIENT}",
 //                         replyTo: "noreply@example.com",
