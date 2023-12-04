@@ -41,7 +41,7 @@ pipeline {
                         to: "${EMAIL_RECIPIENT}",
 //                         replyTo: "noreply@example.com",
                         mimeType: 'text/html',
-                        attachmentsPattern: '${HTML_FILE}'
+                        attachmentsPattern: "${HTML_FILE}"
                     )
                 }
             }
