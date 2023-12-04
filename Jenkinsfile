@@ -44,7 +44,7 @@ pipeline {
                          bat "echo File doesn't exist at: ${attachmentPath}"
                     }
                     // Attach the HTML file and send email
-                    def htmlReport = readFile("${WORKSPACE}${HTML_REPORT}")
+                    def htmlReport = readFile("${attachmentPath}")
                     emailext (
                         subject: "Test Results",
 //                         body: "Please find the attached test results.",
