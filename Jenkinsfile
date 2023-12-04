@@ -46,7 +46,7 @@ pipeline {
 //                         replyTo: "noreply@example.com",
                         mimeType: 'text/html',
                          attachments: [
-                        [file: attachmentPath, fileName: 'emailable-report.html']
+                        [file: attachmentPath, fileName: 'emailable-report.html']]
 //                         attachmentsPattern: "${WORKSPACE}${HTML_FILE}"
                     )
                 }
