@@ -52,9 +52,9 @@ pipeline {
                         to: "${EMAIL_RECIPIENT}",
 //                         replyTo: "noreply@example.com",
                         mimeType: 'text/html',
-                         attachments: [
-                        [file: attachmentPath, fileName: 'emailable-report.html']]
-//                         attachmentsPattern: "${WORKSPACE}${HTML_FILE}"
+//                          attachments: [
+//                         [file: attachmentPath, fileName: 'emailable-report.html']]
+                        attachmentsPattern: "${attachmentPath}"
                     )
                 }
             }
