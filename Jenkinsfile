@@ -13,8 +13,12 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
+                   def targetPath = "${PROJECT_ROOT}\\${TARGET_FOLDER}"
+                   if (fileExists(targetPath)) {
                     // Delete the target folder
-                    bat "rmdir /s /q ${PROJECT_ROOT}\\${TARGET_FOLDER}"
+                    bat "rmdir /s /q ${targetPath}"
+                    } else {
+                        echo "Target directory does not exist. No cleanup needed."
                 }
             }
         }
