@@ -18,6 +18,7 @@ pipeline {
                    def targetPath = "/${TARGET_FOLDER}"
                    if (fileExists(targetPath)) {
                     // Delete the target folder
+                    bat "echo File exists at: ${targetPath}"
                     bat "rmdir /s /q ${targetPath}"
                     } else {
                         echo "Target directory does not exist. No cleanup needed."
@@ -37,7 +38,7 @@ pipeline {
                 script {
                   def attachmentPath = "${TARGET_FOLDER}${SUREFIRE_REPORTS}${HTML_REPORT}"
                     if(fileExists(attachmentPath)){
-                         bat "echo File exists: ${attachmentPath}"
+                         bat "echo File exists at: ${attachmentPath}"
                     } else {
                          bat "echo File doesn't exist at: ${attachmentPath}"
                     }
