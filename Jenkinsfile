@@ -37,12 +37,13 @@ pipeline {
                     // Attach the HTML file and send email
                     emailext (
                         subject: "Test Results",
-                        body: "Please find the attached test results.",
+//                         body: "Please find the attached test results.",
+                        body: readFile("${PROJECT_ROOT}${HTML_FILE}"),
 //                         recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                         to: "${EMAIL_RECIPIENT}",
 //                         replyTo: "noreply@example.com",
                         mimeType: 'text/html',
-                        attachmentsPattern: "${PROJECT_ROOT2}${HTML_FILE}"
+//                         attachmentsPattern: "${PROJECT_ROOT2}${HTML_FILE}"
                     )
                 }
             }
