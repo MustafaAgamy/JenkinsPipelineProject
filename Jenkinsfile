@@ -47,7 +47,7 @@ pipeline {
                         mimeType: 'text/html',
                          attachments: [
                         [file: attachmentPath, fileName: 'emailable-report.html']
-                        attachmentsPattern: "${WORKSPACE}${HTML_FILE}"
+//                         attachmentsPattern: "${WORKSPACE}${HTML_FILE}"
                     )
                 }
             }
